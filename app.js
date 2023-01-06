@@ -63,7 +63,7 @@ app.post("/register", async (request, response) => {
         user.save();
         token.save();
 
-        const message = `${process.env.BASE_URL}/user/verify/${user.id}/${token.token}`;
+        const message = `${process.env.BASE_URL}verify/${user.id}/${token.token}`;
         sendEmail(user.email, "Verify Email", message);
     
         response.send("An Email sent to your account please verify");
